@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="editor-viewport.html">
+<link rel="import" href="editor-attribute-view.html">
+
+<style>
+  :root { --attribute-view-width: 240px; }
+  editor-viewport
+  {
+    width: calc(100% - var(--attribute-view-width));
+    height: 100%;
+    float: left;
+    background: #ff0000;
+  }
+  editor-attribute-view
+  {
+    width: var(--attribute-view-width);
+    height: 100%;
+    float: right;
+    background: #0000ff;
+  }
+</style>
+
+<dom-module id="webgl-editor">
+  <template>
+    <editor-viewport></editor-viewport>
+    <editor-attribute-view></editor-attribute-view>
+  </template>
+</dom-module>
+
+<script>
+  Polymer
+  ({
+    is: "webgl-editor"
+  });
+</script>
