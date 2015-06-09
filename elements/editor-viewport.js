@@ -52,12 +52,25 @@ Polymer
     this.scene.add(this.mesh);
   },
 
-  render: function() { this.renderer.render(this.scene, this.camera); },
+  update: function()
+  {
+    this.mesh.rotation.y += 0.025;
+  },
 
   // fires when the element is inserted into the document
   attached: function()
   {
     this.init();
-    this.render();
+
+    // mandatory weirdness
+    var scope = this;
+
+    function render()
+    {
+      requestAnimationFrame(render);
+      scope.renderer.render(scope.scene, scope.camera);
+      scope.update();
+    }
+    render();
   }
 });
