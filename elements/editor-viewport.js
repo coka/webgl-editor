@@ -10,7 +10,20 @@ Polymer
     renderer: { type: Object, value: new THREE.WebGLRenderer() },
     scene: { type: Object, value: new THREE.Scene() },
     camera: { type: Object, value: new THREE.PerspectiveCamera() },
-    mesh: { type: Object, value: new THREE.Mesh() }
+    mesh: { type: Object, value: new THREE.Mesh() },
+    isAnimated: { type: Boolean, value: true }
+  },
+
+  // listeners
+  listeners:
+  {
+    tap: "tapHandler"
+  },
+
+  // handlers
+  tapHandler: function()
+  {
+    this.toggleAnimation();
   },
 
   // public methods
@@ -54,7 +67,12 @@ Polymer
 
   update: function()
   {
-    this.mesh.rotation.y += 0.025;
+    if (this.isAnimated) { this.mesh.rotation.y += 0.025; }
+  },
+
+  toggleAnimation: function()
+  {
+    this.isAnimated = !this.isAnimated;
   },
 
   resize: function()
