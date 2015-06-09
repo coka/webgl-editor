@@ -57,6 +57,15 @@ Polymer
     this.mesh.rotation.y += 0.025;
   },
 
+  resize: function()
+  {
+    this.width = this.offsetWidth;
+    this.height = this.offsetHeight;
+    this.renderer.setSize(this.width, this.height);
+    this.camera.aspect = this.width / this.height;
+    this.camera.updateProjectionMatrix();
+  },
+
   // fires when the element is inserted into the document
   attached: function()
   {
@@ -72,5 +81,8 @@ Polymer
       scope.update();
     }
     render();
+
+    function resize() { scope.resize(); }
+    window.addEventListener("resize", resize);
   }
 });
