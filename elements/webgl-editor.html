@@ -22,14 +22,18 @@
 
 <dom-module id="webgl-editor">
   <template>
-    <editor-viewport></editor-viewport>
-    <editor-attribute-view></editor-attribute-view>
+    <editor-viewport is-animated={{animationStatus}}></editor-viewport>
+    <editor-attribute-view status=[[animationStatus]]></editor-attribute-view>
   </template>
 </dom-module>
 
 <script>
   Polymer
   ({
-    is: "webgl-editor"
+    is: "webgl-editor",
+    properties:
+    {
+      animationStatus: { type: Boolean, value: true }
+    }
   });
 </script>

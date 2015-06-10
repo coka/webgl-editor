@@ -11,7 +11,7 @@ Polymer
     scene: { type: Object, value: new THREE.Scene() },
     camera: { type: Object, value: new THREE.PerspectiveCamera() },
     mesh: { type: Object, value: new THREE.Mesh() },
-    isAnimated: { type: Boolean, value: true }
+    isAnimated: { type: Boolean, notify: true }
   },
 
   // listeners

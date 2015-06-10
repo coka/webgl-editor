@@ -1,12 +1,44 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
+<style>
+  div
+  {
+    padding: 16px;
+    background: white;
+    font-family: monospace;
+  }
+</style>
+
 <dom-module id="editor-attribute-view">
-  <template></template>
+  <template>
+    <div>Animation: <span id="animation">{{statusMessage}}</span></div>
+  </template>
 </dom-module>
 
 <script>
   Polymer
   ({
-    is: "editor-attribute-view"
+    is: "editor-attribute-view",
+
+    properties:
+    {
+      status: { type: Boolean, observer: "statusObserver" },
+      statusMessage: { type: String }
+    },
+
+    statusObserver: function()
+    {
+      var field = this.$.animation;
+      if (this.status === true)
+      {
+        field.textContent = "YES";
+        field.style.color = "#00ff00";
+      }
+      else
+      {
+        field.textContent = "NO";
+        field.style.color = "#ff0000";
+      }
+    }
   });
 </script>
