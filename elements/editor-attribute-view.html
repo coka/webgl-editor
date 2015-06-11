@@ -11,7 +11,7 @@
 
 <dom-module id="editor-attribute-view">
   <template>
-    <div>Animation: <span id="animation">{{statusMessage}}</span></div>
+    <div>Animation: <input type="checkbox" checked="{{status::change}}"></div>
   </template>
 </dom-module>
 
@@ -22,23 +22,7 @@
 
     properties:
     {
-      status: { type: Boolean, observer: "statusObserver" },
-      statusMessage: { type: String }
-    },
-
-    statusObserver: function()
-    {
-      var field = this.$.animation;
-      if (this.status === true)
-      {
-        field.textContent = "YES";
-        field.style.color = "#00ff00";
-      }
-      else
-      {
-        field.textContent = "NO";
-        field.style.color = "#ff0000";
-      }
+      status: { type: Boolean, notify: true }
     }
   });
 </script>
