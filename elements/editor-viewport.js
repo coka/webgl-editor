@@ -11,7 +11,16 @@ Polymer
     scene: { type: Object, value: new THREE.Scene() },
     camera: { type: Object, value: new THREE.PerspectiveCamera() },
     mesh: { type: Object, value: new THREE.Mesh() },
-    isAnimated: { type: Boolean, notify: true }
+    translateX: { type: Number, notify: true, observer: "translateXChanged" },
+    translateY: { type: Number, notify: true, observer: "translateYChanged" },
+    translateZ: { type: Number, notify: true, observer: "translateZChanged" },
+    rotateX: { type: Number, notify: true, observer: "rotateXChanged" },
+    rotateY: { type: Number, notify: true, observer: "rotateYChanged" },
+    rotateZ: { type: Number, notify: true, observer: "rotateZChanged" },
+    scaleX: { type: Number, notify: true, observer: "scaleXChanged" },
+    scaleY: { type: Number, notify: true, observer: "scaleYChanged" },
+    scaleZ: { type: Number, notify: true, observer: "scaleZChanged" },
+    animationStatus: { type: Boolean, notify: true }
   },
 
   // listeners
@@ -25,6 +34,17 @@ Polymer
   {
     this.toggleAnimation();
   },
+
+  // observer functions
+  translateXChanged: function() { this.mesh.position.x = this.translateX; },
+  translateYChanged: function() { this.mesh.position.y = this.translateY; },
+  translateZChanged: function() { this.mesh.position.z = this.translateZ; },
+  rotateXChanged:    function() { this.mesh.rotation.x = this.rotateX *  Math.PI / 180.0; },
+  rotateYChanged:    function() { this.mesh.rotation.y = this.rotateY *  Math.PI / 180.0; },
+  rotateZChanged:    function() { this.mesh.rotation.z = this.rotateZ *  Math.PI / 180.0; },
+  scaleXChanged:     function() { this.mesh.scale.x = this.scaleX; },
+  scaleYChanged:     function() { this.mesh.scale.y = this.scaleY; },
+  scaleZChanged:     function() { this.mesh.scale.z = this.scaleZ; },
 
   // public methods
   init: function()
@@ -67,12 +87,12 @@ Polymer
 
   update: function()
   {
-    if (this.isAnimated) { this.mesh.rotation.y += 0.025; }
+    if (this.animationStatus) { this.rotateY += 1.0; }
   },
 
   toggleAnimation: function()
   {
-    this.isAnimated = !this.isAnimated;
+    this.animationStatus = !this.animationStatus;
   },
 
   resize: function()
