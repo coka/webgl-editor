@@ -2,25 +2,24 @@
 <link rel="import" href="editor-viewport.html">
 <link rel="import" href="editor-attribute-view.html">
 
-<style>
-  :root { --attribute-view-width: 240px; }
-  editor-viewport
-  {
-    width: calc(100% - var(--attribute-view-width));
-    height: 100%;
-    float: left;
-    background: #ff00ff; /* debug magenta */
-  }
-  editor-attribute-view
-  {
-    width: var(--attribute-view-width);
-    height: 100%;
-    float: right;
-    background: #333333;
-  }
-</style>
-
 <dom-module id="webgl-editor">
+  <style>
+    :root { --attribute-view-width: 240px; }
+    editor-viewport
+    {
+      width: calc(100% - var(--attribute-view-width));
+      height: 100%;
+      float: left;
+      background: #ff00ff; /* debug magenta */
+    }
+    editor-attribute-view
+    {
+      width: var(--attribute-view-width);
+      height: 100%;
+      float: right;
+      background: #333333;
+    }
+  </style>
   <template>
     <editor-viewport is-animated={{animationStatus}}></editor-viewport>
     <editor-attribute-view status={{animationStatus}}></editor-attribute-view>
