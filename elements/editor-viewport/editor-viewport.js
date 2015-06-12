@@ -79,12 +79,46 @@ Polymer
 
   init_scene: function()
   {
+    this.create_grid(10);
+
     var geometry = new THREE.BoxGeometry(5.0, 5.0, 5.0);
     var material = new THREE.MeshBasicMaterial({ color: 0xee3987 });
     this.mesh.geometry = geometry;
     this.mesh.material = material;
 
     this.scene.add(this.mesh);
+  },
+
+  create_grid: function(gridSize)
+  {
+    for (var i = -gridSize; i <= gridSize; i++)
+    {
+      var xLine, zLine, xGeometry, zGeometry, xMaterial, zMaterial;
+
+      xGeometry = new THREE.Geometry();
+      xGeometry.vertices.push(new THREE.Vector3(-gridSize, 0, i));
+      xGeometry.vertices.push(new THREE.Vector3( gridSize, 0, i));
+
+      xMaterial = new THREE.LineBasicMaterial();
+      if (i === 0) { xMaterial.color = new THREE.Color(0xff0000); }
+      else         { xMaterial.color = new THREE.Color(0x3d3d3d); }
+
+      xLine = new THREE.Line(xGeometry, xMaterial);
+
+      this.scene.add(xLine);
+
+      zGeometry = new THREE.Geometry();
+      zGeometry.vertices.push(new THREE.Vector3(i, 0, -gridSize));
+      zGeometry.vertices.push(new THREE.Vector3(i, 0,  gridSize));
+
+      zMaterial = new THREE.LineBasicMaterial();
+      if (i === 0) { zMaterial.color = new THREE.Color(0x0000ff); }
+      else         { zMaterial.color = new THREE.Color(0x3d3d3d); }
+
+      zLine = new THREE.Line(zGeometry, zMaterial);
+
+      this.scene.add(zLine);
+    }
   },
 
   update: function()
