@@ -12,9 +12,9 @@
 div
 {
   padding: 16px;
-  background: white;
-  font-family: monospace;
   overflow: hidden;
+  font-family: monospace;
+  color: #3d3d3d;
 }
 
 div ul
@@ -35,4 +35,5 @@ div ul li input
 {
   width: 100%;
   font-family: monospace;
+  color: #3d3d3d;
 }

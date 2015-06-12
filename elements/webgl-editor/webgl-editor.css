@@ -16,5 +16,5 @@ editor-attribute-view
   width: var(--attribute-view-width);
   height: 100%;
   float: right;
-  background: #333333;
+  background: #f5f5f5;
 }

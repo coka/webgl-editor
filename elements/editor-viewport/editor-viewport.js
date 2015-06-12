@@ -7,7 +7,7 @@ Polymer
   {
     width: { type: Number, value: 0 },
     height: { type: Number, value: 0 },
-    renderer: { type: Object, value: new THREE.WebGLRenderer() },
+    renderer: { type: Object, value: new THREE.WebGLRenderer({ antialias: true }) },
     scene: { type: Object, value: new THREE.Scene() },
     camera: { type: Object, value: new THREE.PerspectiveCamera() },
     mesh: { type: Object, value: new THREE.Mesh() },
@@ -60,6 +60,7 @@ Polymer
   init_renderer: function(width, height)
   {
     this.renderer.setSize(width, height);
+    this.renderer.setClearColor(0xcccccc);
 
     this.appendChild(this.renderer.domElement);
   },
@@ -72,13 +73,14 @@ Polymer
     this.camera.far = far;
     this.camera.updateProjectionMatrix();
 
-    this.camera.position.copy(new THREE.Vector3(0.0, 0.0, 10.0));
+    this.camera.position.copy(new THREE.Vector3(20.0, 20.0, 20.0));
+    this.camera.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
   },
 
   init_scene: function()
   {
-    var geometry = new THREE.BoxGeometry(3.0, 3.0, 3.0);
-    var material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    var geometry = new THREE.BoxGeometry(5.0, 5.0, 5.0);
+    var material = new THREE.MeshBasicMaterial({ color: 0xee3987 });
     this.mesh.geometry = geometry;
     this.mesh.material = material;
 
