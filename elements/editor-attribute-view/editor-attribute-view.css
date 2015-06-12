@@ -1,0 +1,38 @@
+:root
+{
+  --attribute-list-element-padding: 2px;
+}
+
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
+div
+{
+  padding: 16px;
+  background: white;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+div ul
+{
+  list-style-type: none;
+}
+
+div ul li
+{
+  width: calc(50% - (2 * var(--attribute-list-element-padding)));
+  height: 18px;
+  line-height: 18px;
+  float: left;
+  padding: var(--attribute-list-element-padding);
+}
+
+div ul li input
+{
+  width: 100%;
+  font-family: monospace;
+}

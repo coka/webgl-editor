@@ -1,0 +1,33 @@
+<link rel="import" href="../../lib/polymer/polymer.html">
+
+<dom-module id="editor-attribute-view">
+  <link rel="stylesheet" href="editor-attribute-view.css">
+  <template>
+    <div>
+      <ul>
+        <li>Translate X:</li>
+        <li><input type="number" step="any" value={{translateX::change}}></li>
+        <li>Translate Y:</li>
+        <li><input type="number" step="any" value={{translateY::change}}></li>
+        <li>Translate Z:</li>
+        <li><input type="number" step="any" value={{translateZ::change}}></li>
+        <li>Rotate X:</li>
+        <li><input type="number" step="any" value={{rotateX::change}}></li>
+        <li>Rotate Y:</li>
+        <li><input type="number" step="any" value={{rotateY::change}}></li>
+        <li>Rotate Z:</li>
+        <li><input type="number" step="any" value={{rotateZ::change}}></li>
+        <li>Scale X:</li>
+        <li><input type="number" step="any" value={{scaleX::change}}></li>
+        <li>Scale Y:</li>
+        <li><input type="number" step="any" value={{scaleY::change}}></li>
+        <li>Scale Z:</li>
+        <li><input type="number" step="any" value={{scaleZ::change}}></li>
+        <li>Animation:</li>
+        <li><input type="checkbox" checked="{{animationStatus::change}}"></li>
+      </ul>
+    </div>
+  </template>
+</dom-module>
+
+<script src="editor-attribute-view.js"></script>

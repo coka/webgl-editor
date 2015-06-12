@@ -1,0 +1,31 @@
+<link rel="import" href="../../lib/polymer/polymer.html">
+<link rel="import" href="../editor-viewport/editor-viewport.html">
+<link rel="import" href="../editor-attribute-view/editor-attribute-view.html">
+
+<dom-module id="webgl-editor">
+  <link rel="stylesheet" href="webgl-editor.css">
+  <template>
+    <editor-viewport       translate-x={{translateX}}
+                           translate-y={{translateY}}
+                           translate-z={{translateZ}}
+                           rotate-x={{rotateX}}
+                           rotate-y={{rotateY}}
+                           rotate-z={{rotateZ}}
+                           scale-x={{scaleX}}
+                           scale-y={{scaleY}}
+                           scale-z={{scaleZ}}
+                           animation-status={{animationStatus}}></editor-viewport>
+    <editor-attribute-view translate-x={{translateX}}
+                           translate-y={{translateY}}
+                           translate-z={{translateZ}}
+                           rotate-x={{rotateX}}
+                           rotate-y={{rotateY}}
+                           rotate-z={{rotateZ}}
+                           scale-x={{scaleX}}
+                           scale-y={{scaleY}}
+                           scale-z={{scaleZ}}
+                           animation-status={{animationStatus}}></editor-attribute-view>
+  </template>
+</dom-module>
+
+<script src="webgl-editor.js"></script>
