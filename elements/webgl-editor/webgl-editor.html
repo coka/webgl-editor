@@ -5,26 +5,8 @@
 <dom-module id="webgl-editor">
   <link rel="stylesheet" href="webgl-editor.css">
   <template>
-    <editor-viewport       translate-x={{translateX}}
-                           translate-y={{translateY}}
-                           translate-z={{translateZ}}
-                           rotate-x={{rotateX}}
-                           rotate-y={{rotateY}}
-                           rotate-z={{rotateZ}}
-                           scale-x={{scaleX}}
-                           scale-y={{scaleY}}
-                           scale-z={{scaleZ}}
-                           animation-status={{animationStatus}}></editor-viewport>
-    <editor-attribute-view translate-x={{translateX}}
-                           translate-y={{translateY}}
-                           translate-z={{translateZ}}
-                           rotate-x={{rotateX}}
-                           rotate-y={{rotateY}}
-                           rotate-z={{rotateZ}}
-                           scale-x={{scaleX}}
-                           scale-y={{scaleY}}
-                           scale-z={{scaleZ}}
-                           animation-status={{animationStatus}}></editor-attribute-view>
+    <editor-viewport mesh={{mesh}} animation-status={{animationStatus}}></editor-viewport>
+    <editor-attribute-view mesh={{mesh}} animation-status={{animationStatus}}></editor-attribute-view>
   </template>
 </dom-module>
 
