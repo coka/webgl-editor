@@ -11,6 +11,7 @@ Polymer
     scene: { type: Object, value: new THREE.Scene() },
     camera: { type: Object, value: new THREE.PerspectiveCamera() },
     mesh: { type: Object },
+    rotation: { type: Object },
     animationStatus: { type: Boolean, notify: true }
   },
 
@@ -103,7 +104,7 @@ Polymer
 
   update: function()
   {
-    if (this.animationStatus) { this.set("mesh.rotation.y", this.mesh.rotation.y + 0.05); }
+    if (this.animationStatus) { this.set("rotation.y", this.rotation.y + 1.0); }
   },
 
   toggleAnimation: function()
