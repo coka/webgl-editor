@@ -35,6 +35,7 @@ Polymer
 
     this.init_renderer(this.width, this.height);
     this.init_camera(60.0, this.width / this.height, 0.1, 1000.0);
+    this.init_lighting();
     this.init_scene();
   },
 
@@ -42,7 +43,8 @@ Polymer
   {
     this.renderer.setSize(width, height);
     this.renderer.setClearColor(0xcccccc);
-
+    this.renderer.shadowMapEnabled = true;
+    this.renderer.shadowMapSoft = true;
     this.appendChild(this.renderer.domElement);
   },
 
@@ -63,11 +65,42 @@ Polymer
     this.create_grid(10);
 
     var geometry = new THREE.BoxGeometry(5.0, 5.0, 5.0);
-    var material = new THREE.MeshBasicMaterial({ color: 0xee3987 });
+    var material = new THREE.MeshPhongMaterial({
+                   ambient  : 0x444444,
+                   color    : 0xee3987,
+                   shininess: 300,
+                   specular : 0x33AA33,
+                   shading  : THREE.SmoothShading
+    });
+    geometry.receiveShadow = true;
+    geometry.castShadow = true;
     this.mesh.geometry = geometry;
     this.mesh.material = material;
 
     this.scene.add(this.mesh);
+  },
+
+  init_lighting: function()
+  {
+    var ambient = new THREE.AmbientLight(0x666666);
+    this.scene.add(ambient);
+    var direct = new THREE.DirectionalLight(0xdfebff, 1.75);
+    direct.position.set(0,10,10);
+    direct.castShadow = true;
+    direct.shadowCameraVisible = true;
+
+    direct.shadowMapWidth = direct.shadowMapHeight = 2048;
+
+    var DISTANCE = 50;
+
+    direct.shadowCameraLeft = -DISTANCE;
+    direct.shadowCameraRight = DISTANCE;
+    direct.shadowCameraTop = DISTANCE;
+    direct.shadowCameraBottom = -DISTANCE;
+
+    direct.shadowCameraFar = 500;
+    direct.shadowDarkness = 0.5;
+    this.scene.add(direct);
   },
 
   create_grid: function(gridSize)
