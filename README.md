@@ -22,7 +22,7 @@ To try the application at this early stage, clone this repository, `cd` in, and
 run:
 
 ```sh
-npm install && bower install
+. scripts/install.sh
 ```
 
 Serve it on `http://localhost:8080/` with:
