@@ -1,11 +1,12 @@
 {
   "name": "webgl-editor",
+  "version": "0.1.0",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/metropolislights/webgl-editor.git"
   },
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0"
+    "three.js": "0.72.0"
   }
 }
