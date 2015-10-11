@@ -1,5 +1,9 @@
 # webgl-editor
 
+[![Build Status]
+(https://semaphoreci.com/api/v1/projects/6da4ddc8-c4f1-464e-a3f7-8147ee5b645c/566643/badge.svg)]
+(https://semaphoreci.com/metropolislights/webgl-editor)
+
 ## 3D modeling made easy with Polymer and three.js
 
 ### Introduction
