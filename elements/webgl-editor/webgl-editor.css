@@ -1,11 +1,6 @@
-:root
-{
-  --attribute-view-width: 240px;
-}
-
 editor-viewport
 {
-  width: calc(100% - var(--attribute-view-width));
+  width: calc(100% - 240px);
   height: 100%;
   float: left;
   background: #ff00ff; /* debug magenta */
@@ -13,7 +8,7 @@ editor-viewport
 
 editor-attribute-view
 {
-  width: var(--attribute-view-width);
+  width: 240px;
   height: 100%;
   float: right;
   background: #f5f5f5;

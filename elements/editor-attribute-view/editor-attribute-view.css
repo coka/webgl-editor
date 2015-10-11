@@ -1,8 +1,3 @@
-:root
-{
-  --attribute-list-element-padding: 2px;
-}
-
 *
 {
   margin: 0;
@@ -24,11 +19,11 @@ div ul
 
 div ul li
 {
-  width: calc(50% - (2 * var(--attribute-list-element-padding)));
+  width: calc(50% - 4px);
   height: 18px;
   line-height: 18px;
   float: left;
-  padding: var(--attribute-list-element-padding);
+  padding: 2px;
 }
 
 div ul li input
