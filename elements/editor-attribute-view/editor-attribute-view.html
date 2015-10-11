@@ -3,30 +3,91 @@
 <dom-module id="editor-attribute-view">
   <link rel="stylesheet" href="editor-attribute-view.css">
   <template>
+
     <div>
       <ul>
+
         <li>Translate X:</li>
-        <li><input type="number" step="any" value={{mesh.position.x::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{mesh.position.x::change}}>
+        </li>
+
         <li>Translate Y:</li>
-        <li><input type="number" step="any" value={{mesh.position.y::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{mesh.position.y::change}}>
+        </li>
+
         <li>Translate Z:</li>
-        <li><input type="number" step="any" value={{mesh.position.x::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{mesh.position.x::change}}>
+        </li>
+
         <li>Rotate X:</li>
-        <li><input type="number" step="any" value={{rotation.z::change}}></li>
+        <li>
+          <input type="number"
+          step="any"
+          value={{rotation.z::change}}>
+        </li>
+
         <li>Rotate Y:</li>
-        <li><input type="number" step="any" value={{rotation.y::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{rotation.y::change}}>
+        </li>
+
         <li>Rotate Z:</li>
-        <li><input type="number" step="any" value={{rotation.z::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{rotation.z::change}}>
+        </li>
+
         <li>Scale X:</li>
-        <li><input type="number" step="any" value={{mesh.scale.x::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{mesh.scale.x::change}}>
+        </li>
+
         <li>Scale Y:</li>
-        <li><input type="number" step="any" value={{mesh.scale.y::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{mesh.scale.y::change}}>
+        </li>
+
         <li>Scale Z:</li>
-        <li><input type="number" step="any" value={{mesh.scale.z::change}}></li>
+        <li>
+          <input
+            type="number"
+            step="any"
+            value={{mesh.scale.z::change}}>
+        </li>
+
         <li>Animation:</li>
-        <li><input type="checkbox" checked="{{animationStatus::change}}"></li>
+        <li>
+          <input
+            type="checkbox"
+            checked="{{animationStatus::change}}">
+        </li>
+
       </ul>
     </div>
+
   </template>
 </dom-module>
 

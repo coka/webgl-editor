@@ -5,8 +5,19 @@
 <dom-module id="webgl-editor">
   <link rel="stylesheet" href="webgl-editor.css">
   <template>
-    <editor-viewport mesh={{mesh}} rotation={{rotation}} animation-status={{animationStatus}}></editor-viewport>
-    <editor-attribute-view mesh={{mesh}} rotation={{rotation}} animation-status={{animationStatus}}></editor-attribute-view>
+
+    <editor-viewport
+      mesh={{mesh}}
+      rotation={{rotation}}
+      animation-status={{animationStatus}}>
+    </editor-viewport>
+
+    <editor-attribute-view
+      mesh={{mesh}}
+      rotation={{rotation}}
+      animation-status={{animationStatus}}>
+    </editor-attribute-view>
+
   </template>
 </dom-module>
 
