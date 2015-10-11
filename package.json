@@ -16,8 +16,9 @@
     "gulp-jscs": "3.0.1"
   },
   "scripts": {
-    "setup": "npm install && bower install",
-    "server": "node app.js",
+    "preinstall": "npm install bower",
+    "postinstall": "bower install",
+    "start": "node app.js",
     "lint": "gulp lint"
   }
 }

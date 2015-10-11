@@ -13,17 +13,22 @@ everyone by leveraging modern web technologies in order to provide a simplified
 UI for people who are considering working with 3D content as a career or hobby.
 It is heavily inspired by the work of [arodic](https://github.com/arodic).
 
+To view a demo of the editor in action, click
+[here](http://webgleditor.herokuapp.com/).
+
 ### Quick start
 
-This guide assumes you have Node.js and Bower installed globally. To install
-Bower, run:
+To install all the required dependencies, run:
 
 ```sh
-npm install --global bower
+npm install
 ```
 
-Everything else relies on `npm` scripts. The following can be run:
+To serve the application on `http://localhost:8080/`, run:
 
-- `npm run setup` fetches all the required dependencies
-- `npm run server` spins up a server that listens on `http://localhost:8080/`
-- `npm run lint` checks for style errors using [JSCS](http://jscs.info/)
+```sh
+npm start
+```
+
+Also, linting using [JSCS](http://jscs.info/) can be performed with `npm run
+lint`.
