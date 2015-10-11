@@ -16,21 +16,14 @@ It is heavily inspired by the work of [arodic](https://github.com/arodic).
 ### Quick start
 
 This guide assumes you have Node.js and Bower installed globally. To install
-Bower:
+Bower, run:
 
 ```sh
 npm install --global bower
 ```
 
-To try the application at this early stage, clone this repository, `cd` in, and
-run:
+Everything else relies on `npm` scripts. The following can be run:
 
-```sh
-. scripts/install.sh
-```
-
-Serve it on `http://localhost:8080/` with:
-
-```sh
-node app.js
-```
+- `npm run setup` fetches all the required dependencies
+- `npm run server` spins up a server that listens on `http://localhost:8080/`
+- `npm run lint` checks for style errors using [JSCS](http://jscs.info/)
