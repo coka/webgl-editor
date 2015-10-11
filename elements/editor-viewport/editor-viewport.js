@@ -1,6 +1,6 @@
 Polymer
 ({
-  is: "editor-viewport",
+  is: 'editor-viewport',
 
   // member variables
   properties:
@@ -12,13 +12,13 @@ Polymer
     camera: { type: Object, value: new THREE.PerspectiveCamera() },
     mesh: { type: Object },
     rotation: { type: Object },
-    animationStatus: { type: Boolean, notify: true }
+    animationStatus: { type: Boolean, notify: true },
   },
 
   // listeners
   listeners:
   {
-    tap: "tapHandler"
+    tap: 'tapHandler',
   },
 
   // handlers
@@ -33,13 +33,13 @@ Polymer
     this.width = this.offsetWidth;
     this.height = this.offsetHeight;
 
-    this.init_renderer(this.width, this.height);
-    this.init_camera(60.0, this.width / this.height, 0.1, 1000.0);
-    this.init_lighting();
-    this.init_scene();
+    this.initRenderer(this.width, this.height);
+    this.initCamera(60.0, this.width / this.height, 0.1, 1000.0);
+    this.initLighting();
+    this.initScene();
   },
 
-  init_renderer: function(width, height)
+  initRenderer: function(width, height)
   {
     this.renderer.setSize(width, height);
     this.renderer.setClearColor(0xcccccc);
@@ -48,7 +48,7 @@ Polymer
     this.appendChild(this.renderer.domElement);
   },
 
-  init_camera: function(fov, aspect, near, far, position)
+  initCamera: function(fov, aspect, near, far, position)
   {
     this.camera.fov = fov;
     this.camera.aspect = aspect;
@@ -60,17 +60,17 @@ Polymer
     this.camera.lookAt(new THREE.Vector3(0.0, 0.0, 0.0));
   },
 
-  init_scene: function()
+  initScene: function()
   {
-    this.create_grid(10);
+    this.createGrid(10);
 
     var geometry = new THREE.BoxGeometry(5.0, 5.0, 5.0);
     var material = new THREE.MeshPhongMaterial({
-                   ambient  : 0x444444,
-                   color    : 0xee3987,
-                   shininess: 300,
-                   specular : 0x33AA33,
-                   shading  : THREE.SmoothShading
+      ambient: 0x444444,
+      color: 0xee3987,
+      shininess: 300,
+      specular: 0x33AA33,
+      shading: THREE.SmoothShading,
     });
     geometry.receiveShadow = true;
     geometry.castShadow = true;
@@ -80,12 +80,12 @@ Polymer
     this.scene.add(this.mesh);
   },
 
-  init_lighting: function()
+  initLighting: function()
   {
     var ambient = new THREE.AmbientLight(0x666666);
     this.scene.add(ambient);
     var direct = new THREE.DirectionalLight(0xdfebff, 1.75);
-    direct.position.set(0,10,10);
+    direct.position.set(0, 10, 10);
     direct.castShadow = true;
     direct.shadowCameraVisible = true;
 
@@ -103,19 +103,27 @@ Polymer
     this.scene.add(direct);
   },
 
-  create_grid: function(gridSize)
+  createGrid: function(gridSize)
   {
     for (var i = -gridSize; i <= gridSize; i++)
     {
-      var xLine, zLine, xGeometry, zGeometry, xMaterial, zMaterial;
+      var xLine;
+      var zLine;
+      var xGeometry;
+      var zGeometry;
+      var xMaterial;
+      var zMaterial;
 
       xGeometry = new THREE.Geometry();
       xGeometry.vertices.push(new THREE.Vector3(-gridSize, 0, i));
-      xGeometry.vertices.push(new THREE.Vector3( gridSize, 0, i));
+      xGeometry.vertices.push(new THREE.Vector3(gridSize, 0, i));
 
       xMaterial = new THREE.LineBasicMaterial();
-      if (i === 0) { xMaterial.color = new THREE.Color(0xff0000); }
-      else         { xMaterial.color = new THREE.Color(0x3d3d3d); }
+      if (i === 0) {
+        xMaterial.color = new THREE.Color(0xff0000);
+      } else {
+        xMaterial.color = new THREE.Color(0x3d3d3d);
+      }
 
       xLine = new THREE.Line(xGeometry, xMaterial);
 
@@ -126,8 +134,11 @@ Polymer
       zGeometry.vertices.push(new THREE.Vector3(i, 0,  gridSize));
 
       zMaterial = new THREE.LineBasicMaterial();
-      if (i === 0) { zMaterial.color = new THREE.Color(0x0000ff); }
-      else         { zMaterial.color = new THREE.Color(0x3d3d3d); }
+      if (i === 0) {
+        zMaterial.color = new THREE.Color(0x0000ff);
+      } else {
+        zMaterial.color = new THREE.Color(0x3d3d3d);
+      }
 
       zLine = new THREE.Line(zGeometry, zMaterial);
 
@@ -137,7 +148,7 @@ Polymer
 
   update: function()
   {
-    if (this.animationStatus) { this.set("rotation.y", this.rotation.y + 1.0); }
+    if (this.animationStatus) { this.set('rotation.y', this.rotation.y + 1.0); }
   },
 
   toggleAnimation: function()
@@ -160,17 +171,19 @@ Polymer
     this.init();
 
     // mandatory weirdness
-    var scope = this;
+    var _this = this;
 
     function render()
     {
       requestAnimationFrame(render);
-      scope.renderer.render(scope.scene, scope.camera);
-      scope.update();
+      _this.renderer.render(_this.scene, _this.camera);
+      _this.update();
     }
+
     render();
 
-    function resize() { scope.resize(); }
-    window.addEventListener("resize", resize);
-  }
+    function resize() { _this.resize(); }
+
+    window.addEventListener('resize', resize);
+  },
 });
