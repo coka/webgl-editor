@@ -7,7 +7,7 @@ Polymer
   {
     width: { type: Number, value: 0 },
     height: { type: Number, value: 0 },
-    renderer: { type: Object, value: new THREE.WebGLRenderer({ antialias: true }) },
+    renderer: { type: Object, value: new THREE.WebGLRenderer() },
     scene: { type: Object, value: new THREE.Scene() },
     camera: { type: Object, value: new THREE.PerspectiveCamera() },
     mesh: { type: Object },
@@ -41,6 +41,7 @@ Polymer
 
   initRenderer: function(width, height)
   {
+    this.renderer.setPixelRatio(window.devicePixelRatio || 1);
     this.renderer.setSize(width, height);
     this.renderer.setClearColor(0xcccccc);
     this.renderer.shadowMapEnabled = true;
