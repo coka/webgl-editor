@@ -6,7 +6,7 @@
 
 div
 {
-  padding: 16px;
+  padding: 12px;
   overflow: hidden;
   font-family: monospace;
   color: #3d3d3d;
@@ -15,20 +15,23 @@ div
 div ul
 {
   list-style-type: none;
+  margin: 2px;
 }
 
 div ul li
 {
-  width: calc(50% - 4px);
+  width: 40%;
   height: 18px;
   line-height: 18px;
   float: left;
-  padding: 2px;
+  margin: 4px;
 }
 
 div ul li input
 {
-  width: 100%;
+  float: left;
+  width: 50%;
   font-family: monospace;
   color: #3d3d3d;
+  margin: 2px;
 }

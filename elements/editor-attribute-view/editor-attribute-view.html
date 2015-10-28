@@ -1,13 +1,22 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
 <dom-module id="editor-attribute-view">
   <link rel="stylesheet" href="editor-attribute-view.css">
   <template>
 
     <div>
-      <ul>
 
-        <li>Translate X:</li>
+      <ul>
+        <li
+          style="width:100%;">
+          <iron-icon
+            icon="icons:open-with">
+          </iron-icon>
+          Translate
+        </li>
+
+        <li>X:</li>
         <li>
           <input
             type="number"
@@ -15,7 +24,7 @@
             value={{mesh.position.x::change}}>
         </li>
 
-        <li>Translate Y:</li>
+        <li>Y:</li>
         <li>
           <input
             type="number"
@@ -23,22 +32,33 @@
             value={{mesh.position.y::change}}>
         </li>
 
-        <li>Translate Z:</li>
+        <li>Z:</li>
         <li>
           <input
             type="number"
             step="any"
-            value={{mesh.position.x::change}}>
+            value={{mesh.position.z::change}}>
+        </li>
+      </ul>
+
+      <ul>
+        <li
+          style="width:100%;">
+          <iron-icon
+            icon="icons:3d-rotation">
+          </iron-icon>
+          Rotate
         </li>
 
-        <li>Rotate X:</li>
+        <li>X:</li>
         <li>
-          <input type="number"
-          step="any"
-          value={{rotation.z::change}}>
+          <input
+            type="number"
+            step="any"
+            value={{rotation.x::change}}>
         </li>
 
-        <li>Rotate Y:</li>
+        <li>Y:</li>
         <li>
           <input
             type="number"
@@ -46,15 +66,25 @@
             value={{rotation.y::change}}>
         </li>
 
-        <li>Rotate Z:</li>
+        <li>Z:</li>
         <li>
           <input
             type="number"
             step="any"
             value={{rotation.z::change}}>
         </li>
+      </ul>
 
-        <li>Scale X:</li>
+      <ul>
+        <li
+          style="width:100%;">
+          <iron-icon
+            icon="icons:open-in-new">
+          </iron-icon>
+          Scale
+        </li>
+
+        <li>X:</li>
         <li>
           <input
             type="number"
@@ -62,7 +92,7 @@
             value={{mesh.scale.x::change}}>
         </li>
 
-        <li>Scale Y:</li>
+        <li>Y:</li>
         <li>
           <input
             type="number"
@@ -70,22 +100,24 @@
             value={{mesh.scale.y::change}}>
         </li>
 
-        <li>Scale Z:</li>
+        <li>Z:</li>
         <li>
           <input
             type="number"
             step="any"
             value={{mesh.scale.z::change}}>
         </li>
+      </ul>
 
+      <ul>
         <li>Animation:</li>
         <li>
           <input
             type="checkbox"
             checked="{{animationStatus::change}}">
         </li>
-
       </ul>
+
     </div>
 
   </template>

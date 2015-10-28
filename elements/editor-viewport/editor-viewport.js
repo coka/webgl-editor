@@ -88,7 +88,6 @@ Polymer
     var direct = new THREE.DirectionalLight(0xdfebff, 1.75);
     direct.position.set(0, 10, 10);
     direct.castShadow = true;
-    direct.shadowCameraVisible = true;
 
     direct.shadowMapWidth = direct.shadowMapHeight = 2048;
 
